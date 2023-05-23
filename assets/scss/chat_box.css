@@ -1,54 +1,87 @@
 #user-chat-box {
-  position: fixed;
-  bottom: 10px;
-  right: 50px;
-  border: 1px dashed grey;
-  height: 350px;
   width: 300px;
-  background: white;
-  padding: 5px;
-  box-shadow: 1px 1px 1px 1px lightgrey;
+  height: 300px;
+  border: 2px solid rgb(219, 219, 210);
+  margin: 0;
+  margin-top: 23%;
+  background-color: rgb(216, 217, 216);
 }
-#user-chat-box #chat-messages-list {
+
+/* message container //////////////////// */
+#chat-message-list {
+  background-color: rgb(216, 217, 216);
+  height: 235px;
+  overflow-y: auto;
+}
+
+#chat-message-list::-webkit-scrollbar {
+  display: none;
+}
+
+ul {
+  /* margin-left: -30px; */
+  padding: 0 8px;
+}
+
+/* message list////////////////////// */
+#chat-message-list li {
   list-style: none;
-  padding: 10px;
-  height: 70%;
-  background-color: rgb(211, 188, 188);
-  overflow: auto;
-}
-#user-chat-box #chat-messages-list .other-message {
-  text-align: left;
-  padding: 5px;
-}
-#user-chat-box #chat-messages-list .other-message span {
-  display: inline-block;
-  padding: 15px;
-  background-color: white;
-}
-#user-chat-box #chat-messages-list .self-message {
-  text-align: right;
-  padding: 5px;
-}
-#user-chat-box #chat-messages-list .self-message span {
-  display: inline-block;
-  padding: 15px;
-  background-color: #0a76db;
-}
-#user-chat-box #chat-message-input-container {
-  height: 24%;
   width: 100%;
+  margin: 4px 0;
+}
+
+.my-message sub {
+  float: right;
+}
+
+/* sendre message////////////////////////////// */
+.sender {
+  /* margin-left: -200px; */
+  /* margin-left: 40px; */
+  width: 100%;
+}
+.sender span {
+  border-radius: 0 6px 6px 0;
+  padding: 4px 6px;
   display: flex;
-  flex-direction: row;
+  width: 60%;
+  background-color: lightblue;
+  /* width: 100%; */
+  /* padding: ; */
 }
-#user-chat-box #chat-message-input-container #chat-message-input {
-  height: 50%;
-  width: 70%;
+
+/* my message ////////////////////////////////// */
+.my-message {
+  margin-left: 40px;
+  width: 100%;
 }
-#user-chat-box #chat-message-input-container #send-message {
-  height: 50%;
-  width: 30%;
-  font-size: 25px;
-  color: white;
-  border: none;
-  background: #58d258;
-}/*# sourceMappingURL=chat_box.css.map */
+.my-message span {
+  background-color: lightsteelblue;
+  width: 60%;
+  margin-left: 70px;
+  display: flex;
+  border-radius: 6px 0px 0 6px;
+  padding: 4px 6px;
+  /* width: 100%; */
+}
+
+/* chat form ////////////////////////////////// */
+.form-chat-box {
+  /* border: 2px solid red; */
+  display: flex;
+  height: 2rem;
+}
+
+.form-chat-box input {
+  background-color: lightgray;
+  color: black;
+  font-weight: bold;
+  padding-left: 5px;
+}
+#chat-message {
+  width: 75%;
+}
+#send-message {
+  width: 25%;
+  background-color: #0d6efd;
+}
