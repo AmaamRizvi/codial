@@ -13,6 +13,15 @@ const MongoStore = require("connect-mongodb-session")(session);
 const flash = require("connect-flash");
 const customMware = require("./config/middleware");
 
+const chatServer = require('http').Server(app);
+const chatSockets = require('./config/chat_sockets').chatSockets(chatServer); 
+chatServer.listen(5000);
+console.log('chatserver is on over 5000 port');
+
+chatServer.prependListener("request", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+});
+
 app.use(express.urlencoded());
 
 app.use(cookieParser());

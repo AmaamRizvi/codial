@@ -13,6 +13,12 @@ let createPost = function () {
         let newPost = newPostDom(data.data.post);
         $("#posts-list-container>ul").prepend(newPost);
         deletePost($(" .delete-post-button", newPost));
+
+        // call the create comment class
+        new PostComments(data.data.post._id);
+
+        new ToggleLike($(" .toggle-like-button", newPost));
+
         new Noty({
           theme: "relax",
           text: "Post published!",

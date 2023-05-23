@@ -45,7 +45,10 @@ module.exports.signIn = function (req, res) {
 
 // get the sign up data
 module.exports.create = function (req, res) {
-  if (req.body.password != req.body.confirm_password) {
+
+  console.log(req.body.password);
+  console.log(req.body.password_confirm);
+  if (req.body.password != req.body.password_confirm) {
     req.flash("error", "Passwords do not match");
     return res.redirect("back");
   }
@@ -79,8 +82,13 @@ module.exports.createSession = function (req, res) {
 };
 
 module.exports.destroySession = function (req, res) {
-  req.logout();
-  req.flash("success", "You have logged out!");
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
 
-  return res.redirect("/");
+    req.flash("success", "You have logged out!");
+
+    return res.redirect("/");
+  });
 };

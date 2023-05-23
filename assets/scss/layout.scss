@@ -1,7 +1,9 @@
 body{
     margin: 0;
-    // text-align: center;
-}
-    body #layout-main{
+    /* text-align: center; */
+
+    #layout-main{
         height: 100%;
+        overflow: auto;
     }
+}
